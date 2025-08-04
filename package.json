@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.7",
+    "react-bootstrap": "^2.10.10"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  }
+}
