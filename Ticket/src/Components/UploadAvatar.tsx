@@ -64,7 +64,7 @@ function UploadAvatar() {
   return (
     <>
       <div className="display:inline-block; position: relative">
-        <div className="flex items-center justify-center mt-7">
+        <div className="flex items-center justify-center mt-2">
           <div>
             <div>
               <p>Upload Avatar</p>
@@ -75,7 +75,7 @@ function UploadAvatar() {
               onDrop={handleDrop}
               onDragOver={handleDragOver}
             >
-              <div className="pt-4 px-20 border-2 border-dashed border-gray-500 cursor-pointer border-raduce rounded-lg">
+              <div className="w-[450px] h-[100px] pt-2 px-20 border-2 border-dashed border-gray-500 cursor-pointer border-raduce rounded-lg">
                 <div className="flex items-center justify-center">
                   {image ? (
                     <img
@@ -98,7 +98,7 @@ function UploadAvatar() {
                       ""
                     ) : (
                       <>
-                        <p className="text-xl font-medium text-gray-700">
+                        <p className="text-l font-medium text-gray-700">
                           Drag and drop your files here
                         </p>
                       </>

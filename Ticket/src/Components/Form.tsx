@@ -30,7 +30,7 @@ function Form() {
         <div className="flex items-center justify-center">
           <div>
             <div>
-              <p className=" mt-5">Full Name</p>
+              <p className=" mt-3 mb-2">Full Name</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"
@@ -40,7 +40,7 @@ function Form() {
             </div>
 
             <div>
-              <p className="mt-5">Email Address</p>
+              <p className="mt-3 mb-2">Email Address</p>
               <div className="flex items-center justify-center">
                 <input
                   type="email"
@@ -52,7 +52,7 @@ function Form() {
             </div>
 
             <div>
-              <p className=" mt-5">GitHub Username</p>
+              <p className=" mt-3 mb-2">GitHub Username</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"
@@ -65,7 +65,7 @@ function Form() {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="w-[450px] bg-[#E97464] mt-5 rounded-lg px-6 py-2 text-black font-bold"
+                className="w-[450px] bg-[#E97464] mt-3 rounded-lg px-6 py-2 text-black font-bold z-[2]"
               >
                 Generate My Ticket
               </button>
