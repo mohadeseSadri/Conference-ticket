@@ -1,5 +1,5 @@
 import logo from "../../assets/Images/logo-full.svg";
-import PatternTop from "../../assets/Images/pattern-squiggly-line-top.svg";
+import PatternTop from "../PatternTop";
 function Header() {
   return (
     <>
@@ -27,9 +27,7 @@ function Header() {
           </div>
         </div>
 
-        <div>
-          <img src={PatternTop} alt="Pattern" />
-        </div>
+        <PatternTop />
       </div>
     </>
   );

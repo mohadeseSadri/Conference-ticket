@@ -1,6 +1,6 @@
 import Form from "./Components/Form/Form"
 import Header from "./Components/Form/Header"
-import PatternBottomDesktop from "./Components/PatternBottomDesktop"
+import PatternBottomDesktop from "./Components/PatternBottom"
 import UploadAvatar from "./Components/Form/UploadAvatar"
 import Background from "./Components/Background"
 import "./App.css"

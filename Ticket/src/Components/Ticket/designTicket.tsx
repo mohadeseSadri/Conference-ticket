@@ -1,10 +1,11 @@
 import Background from "../Background";
-import PatternBottomDesktop from "../PatternBottomDesktop";
+import PatternTop from "../PatternTop";
+
 function DesignTicket() {
 return (
     <>
     <Background />
-    <PatternBottomDesktop />
+    <PatternTop />
     </>
 )
 }
