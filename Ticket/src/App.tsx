@@ -1,7 +1,7 @@
-import Form from "./Components/Form"
-import Header from "./Components/Header"
+import Form from "./Components/Form/Form"
+import Header from "./Components/Form/Header"
 import PatternBottomDesktop from "./Components/PatternBottomDesktop"
-import UploadAvatar from "./Components/UploadAvatar"
+import UploadAvatar from "./Components/Form/UploadAvatar"
 import Background from "./Components/Background"
 import "./App.css"
 

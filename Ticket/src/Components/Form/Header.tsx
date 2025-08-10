@@ -1,5 +1,5 @@
-import logo from "../assets/Images/logo-full.svg";
-import PatternTop from "../assets/Images/pattern-squiggly-line-top.svg";
+import logo from "../../assets/Images/logo-full.svg";
+import PatternTop from "../../assets/Images/pattern-squiggly-line-top.svg";
 function Header() {
   return (
     <>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Upload from "../assets/Images/icon-upload.svg";
-import Info from "../assets/Images/icon-info.svg";
+import Upload from "../../assets/Images/icon-upload.svg";
+import Info from "../../assets/Images/icon-info.svg";
 
 function UploadAvatar() {
   const [image, setImage] = useState<string | null>(null);

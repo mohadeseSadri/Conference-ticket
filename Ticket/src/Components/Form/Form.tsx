@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Form() {
   const [email, ] = useState("");
@@ -67,7 +68,7 @@ function Form() {
                 type="submit"
                 className="w-[450px] bg-[#E97464] mt-3 rounded-lg px-6 py-2 text-black font-bold z-[2]"
               >
-                Generate My Ticket
+                <Link to="/ticket">Generate My Ticket</Link>
               </button>
             </div>
           </div>
