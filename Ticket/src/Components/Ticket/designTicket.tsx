@@ -1,13 +1,15 @@
 import Background from "../Background";
+import PatternLogo from "../PatternLogo";
 import PatternTop from "../PatternTop";
 
 function DesignTicket() {
-return (
+  return (
     <>
-    <Background />
-    <PatternTop />
+      <Background />
+      <PatternTop />
+      <PatternLogo />
     </>
-)
+  );
 }
 
 export default DesignTicket;

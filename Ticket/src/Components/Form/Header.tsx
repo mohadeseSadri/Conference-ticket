@@ -1,34 +1,26 @@
-import logo from "../../assets/Images/logo-full.svg";
+import PatternLogo from "../PatternLogo";
 import PatternTop from "../PatternTop";
 function Header() {
   return (
     <>
-      <div className="flex items-center justify-center display:inline-block; position: relative">
+      <div className="relative flex items-center justify-center">
+        <div>
+            <PatternLogo />
 
-        <div className="display:inline-block; position:absolute; ml-[340px]">
-
-          <div className="flex items-center justify-center mt-3">
-            <div className="flex gap-4">
-              <img src={logo} alt="logo"/>
-              
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center mt-3">
-            <h1 className="text-4xl font-black text-center">
+          <div className="mt-4 flex items-center justify-center">
+            <h1 className="text-center text-4xl font-black">
               Your Journey to Coding Conf 2025 starts Here!
             </h1>
           </div>
 
-          <div className="flex items-center justify-center mt-3">
+          <div className="mt-3 flex items-center justify-center">
             <p className="text-center">
               Secure your spot at next year's biggest coding conference
             </p>
           </div>
         </div>
-
-        <PatternTop />
       </div>
+      <PatternTop />
     </>
   );
 }
