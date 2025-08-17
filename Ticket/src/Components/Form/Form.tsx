@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 function Form() {
   const [email] = useState("");
@@ -8,6 +9,7 @@ function Form() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(input);
   };
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -18,10 +20,8 @@ function Form() {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    const ticketData = JSON.stringify(formData);
-    localStorage.setItem('ticketData', ticketData);
-    navigate('../Ticket/designTicket')
+    queryClient.setQueryData(['ticket'], formData);
+    navigate('../Ticket/designTicket');
 
     if (!email) {
       setError("Please enter your email");
