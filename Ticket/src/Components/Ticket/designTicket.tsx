@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Background from "../Background";
 import PatternLogo from "../PatternLogo";
 import PatternTop from "../PatternTop";
