@@ -12,7 +12,7 @@ function Form() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({
+  const [formData, ] = useState({
     name: "",
     email: "",
     username: ""
@@ -35,6 +35,9 @@ function Form() {
 
     setError("");
     console.log("Email is valid:", email);
+
+    setTicketDate(new Date());
+    setIsSubmitted(true);
   };
   return (
     <>
@@ -82,6 +85,7 @@ function Form() {
               <button
                 type="submit"
                 className="z-[2] mt-3 w-[450px] rounded-lg bg-[#E97464] px-6 py-2 font-bold text-black"
+                
               >
                 <Link to="/ticket">Generate My Ticket</Link>
               </button>
@@ -94,3 +98,11 @@ function Form() {
 }
 
 export default Form;
+function setTicketDate(arg0: Date) {
+  throw new Error("Function not implemented.");
+}
+
+function setIsSubmitted(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

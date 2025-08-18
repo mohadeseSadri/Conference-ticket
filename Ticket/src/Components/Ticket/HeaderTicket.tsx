@@ -19,7 +19,7 @@ function HeaderTicket() {
   return (
     <>
       <div className="mt-5 flex items-center justify-center">
-        <div className="relative z-[2]">
+        <div>
           <h1 className="flex">
             Congrats,
             <span className="text-[#F57463] px-1">{ticket.name}!</span>
