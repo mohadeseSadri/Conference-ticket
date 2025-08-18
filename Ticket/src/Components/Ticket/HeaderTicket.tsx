@@ -1,20 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
 <link rel="stylesheet" href="./HeaderTicket.css" />;
-
-interface Ticket {
-  name: string;
-  email: string;
-}
+import UserInformation from "./UserInformation";
 
 function HeaderTicket() {
-  const { data: ticket } = useQuery<Ticket>({
-    queryKey: ["ticket"],
-    queryFn: () => {
-      return { name: "Mohaddese", email: "mohadesehsadr788@gmail.com" };
-    },
-  });
-
-  if (!ticket) return <div>تیکتی یافت نشد!</div>;
+  const { data: ticket } = UserInformation();
+  if (!ticket) return <div>Loading...</div>;
 
   return (
     <>
@@ -22,7 +11,7 @@ function HeaderTicket() {
         <div>
           <h1 className="flex">
             Congrats,
-            <span className="text-[#F57463] px-1">{ticket.name}!</span>
+            <span className="px-1 text-[#F57463]">{ticket.name}!</span>
             Your ticket is ready.
           </h1>
 
