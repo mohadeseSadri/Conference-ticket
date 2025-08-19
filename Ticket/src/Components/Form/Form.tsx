@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
+import { useRandomNumber } from "../Ticket/RandomNumberContext";
 
 function Form() {
   const [email] = useState("");
@@ -12,16 +13,16 @@ function Form() {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
-  const [formData, ] = useState({
+  const [formData] = useState({
     name: "",
     email: "",
-    username: ""
+    username: "",
   });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    queryClient.setQueryData(['ticket'], formData);
-    navigate('../Ticket/designTicket');
+    queryClient.setQueryData(["ticket"], formData);
+    navigate("/ticket");
 
     if (!email) {
       setError("Please enter your email");
@@ -35,17 +36,17 @@ function Form() {
 
     setError("");
     console.log("Email is valid:", email);
-
-    setTicketDate(new Date());
-    setIsSubmitted(true);
   };
+
+  const { generateRandomNumber } = useRandomNumber();
+
   return (
     <>
       <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center justify-center">
           <div>
             <div>
-              <p className="mb-2 mt-3">Full Name</p>
+              <p className="mt-3 mb-2">Full Name</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"
@@ -55,7 +56,7 @@ function Form() {
             </div>
 
             <div>
-              <p className="mb-2 mt-3">Email Address</p>
+              <p className="mt-3 mb-2">Email Address</p>
               <div className="flex items-center justify-center">
                 <input
                   type="email"
@@ -71,7 +72,7 @@ function Form() {
             </div>
 
             <div>
-              <p className="mb-2 mt-3">GitHub Username</p>
+              <p className="mt-3 mb-2">GitHub Username</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"
@@ -83,11 +84,11 @@ function Form() {
 
             <div className="flex items-center justify-center">
               <button
+                onClick={generateRandomNumber}
                 type="submit"
                 className="z-[2] mt-3 w-[450px] rounded-lg bg-[#E97464] px-6 py-2 font-bold text-black"
-                
               >
-                <Link to="/ticket">Generate My Ticket</Link>
+                Generate My Ticket
               </button>
             </div>
           </div>
@@ -98,11 +99,3 @@ function Form() {
 }
 
 export default Form;
-function setTicketDate(arg0: Date) {
-  throw new Error("Function not implemented.");
-}
-
-function setIsSubmitted(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
-
