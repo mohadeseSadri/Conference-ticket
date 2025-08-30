@@ -42,11 +42,11 @@ function Form() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="relative">
-        <div className="flex items-center justify-center">
+      <form onSubmit={handleSubmit} className="relative z-[2]">
+        <div className=" flex items-center justify-center">
           <div>
             <div>
-              <p className="mt-3 mb-2">Full Name</p>
+              <p className="mt-1 mt-lg-3 mb-2">Full Name</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"

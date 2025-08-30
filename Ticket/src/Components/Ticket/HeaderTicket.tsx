@@ -9,9 +9,9 @@ function HeaderTicket() {
     <>
       <div className="mt-5 flex items-center justify-center">
         <div>
-          <h1 className="flex">
+          <h1 className="text-3xl text-center [&>p]:my-0">
             Congrats,
-            <span className="px-1 text-[#F57463]">{ticket.name}!</span>
+            <span className="px-1 text-[#F57463] text-nowrap h-[2rem]">{ticket.name}!</span>
             Your ticket is ready.
           </h1>
 

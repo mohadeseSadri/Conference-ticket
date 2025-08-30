@@ -18,11 +18,11 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
 
   return (
     <>
-      <div className="relative mt-5 flex items-center justify-center">
+      <div className="relative mt-5 mx-4 flex items-center justify-center">
         <img src={PatternTicket} alt="" />
         <div className="absolute z-[3] flex">
           <div>
-            <div className="mr-[18rem] mb-[5rem]">
+            <div className="mr-[11rem] mb-[1rem] sm:mr-[15rem] sm:mb-[2rem]">
               <div className="flex">
                 <img src={logo} alt="" className="mb-[2rem]" />
                 <div>
@@ -42,7 +42,7 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
           </div>
 
           <div style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-            <p className="text-2xl mt-[5rem] text-gray-400">#{randomNumber}</p>
+            <p className="text-2xl mt-[3rem] text-gray-400">#{randomNumber}</p>
           </div>
         </div>
       </div>
