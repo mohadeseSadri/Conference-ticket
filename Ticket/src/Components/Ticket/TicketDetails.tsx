@@ -1,8 +1,8 @@
 import PatternTicket from "../../assets/Images/pattern-ticket.svg";
 import logo from "../../assets/Images/logo-mark.svg";
-import UserInformation from "./UserInformation";
 import GithubIcon from "../../assets/Images/icon-github.svg";
 import { useRandomNumber } from "./RandomNumberContext";
+import { useLocation } from "react-router-dom";
 
 function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
   const formattedDate = ticketDate.toLocaleDateString("en-US", {
@@ -11,8 +11,9 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
     day: "numeric",
   });
 
-  const { data: ticket } = UserInformation();
-  if (!ticket) return <div>Loading...</div>;
+  const location = useLocation();
+  const data = location.state;
+  if (!data) return <p>Data not</p> ;
 
   const { randomNumber } = useRandomNumber();
 
@@ -33,10 +34,10 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
             </div>
 
             <div className="[&>p]:my-0">
-              <p>{ticket.name}</p>
+              <p>{data.name}</p>
               <div className="flex">
                 <img src={GithubIcon} alt="" />
-                <p className="px-2 pt-3">{ticket.githubId}</p>
+                <p className="px-2 pt-3">{data.userName}</p>
               </div>
             </div>
           </div>

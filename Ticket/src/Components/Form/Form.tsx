@@ -1,56 +1,39 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
 import { useRandomNumber } from "../Ticket/RandomNumberContext";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+
+type RegisterFormData = {
+  name: string;
+  email: string;
+  userName: string;
+};
 
 function Form() {
-  const [email] = useState("");
-  const [error, setError] = useState("");
-  const validateEmail = (input: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(input);
-  };
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormData>();
 
-  const [formData] = useState({
-    name: "",
-    email: "",
-    username: "",
-  });
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    queryClient.setQueryData(["ticket"], formData);
-    navigate("/ticket");
-
-    if (!email) {
-      setError("Please enter your email");
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setError("Invalid email format");
-      return;
-    }
-
-    setError("");
-    console.log("Email is valid:", email);
+  const onSubmit = (data: RegisterFormData) => {
+    navigate("/ticket", { state: data });
   };
 
   const { generateRandomNumber } = useRandomNumber();
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="relative z-[2]">
-        <div className=" flex items-center justify-center">
+      <form onSubmit={handleSubmit(onSubmit)} className="relative z-[2]">
+        <div className="flex items-center justify-center">
           <div>
             <div>
-              <p className="mt-1 mt-lg-3 mb-2">Full Name</p>
+              <p className="mt-lg-3 mt-1 mb-2">Full Name</p>
               <div className="flex items-center justify-center">
                 <input
                   type="text"
                   className="border-raduce w-[450px] rounded-lg border-2 border-gray-500 bg-transparent px-2 py-1"
+                  {...register("name", { required: "Please enter valid name" })}
                 />
               </div>
             </div>
@@ -62,13 +45,20 @@ function Form() {
                   type="email"
                   className="border-raduce w-[450px] rounded-lg border-2 border-gray-500 bg-transparent px-2 py-1"
                   placeholder="example@email.com"
+                  {...register("email", {
+                    required: "Please enter a valid email address",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Please enter a valid email address",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <p className="mt-2 flex text-[70%] text-red-500">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
-              {error && (
-                <p className="text-[70%] text-red-500">
-                  Please enter a valid email address
-                </p>
-              )}
             </div>
 
             <div>
@@ -78,6 +68,7 @@ function Form() {
                   type="text"
                   className="border-raduce w-[450px] rounded-lg border-2 border-gray-500 bg-transparent px-2 py-1"
                   placeholder="@yourusername"
+                  {...register("userName", { required: "Please enter valid userName" })}
                 />
               </div>
             </div>
