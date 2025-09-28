@@ -15,7 +15,6 @@ function App() {
         <Header />
       </header>
       <main>
-        <UploadAvatar />
         <Routes>
           <Route path="/" element={<Form />} />
           <Route path="/result" element={<DesignTicket />} />
