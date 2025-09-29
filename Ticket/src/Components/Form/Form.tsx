@@ -1,16 +1,18 @@
 import { useRandomNumber } from "../Ticket/RandomNumberContext";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import UploadAvatar from "./UploadAvatar";
+import { AvatarUploader } from "./AvatarUpload";
 
 type RegisterFormData = {
   name: string;
   email: string;
   userName: string;
+  avatar?: File | null;
 };
 
 function Form() {
   const navigate = useNavigate();
+  const methods = useForm<RegisterFormData>();
   const {
     register,
     handleSubmit,
@@ -25,14 +27,15 @@ function Form() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="relative z-[2]">
-        <div className="flex items-center justify-center">
-          <div>
-            <UploadAvatar />
+      <FormProvider {...methods}>
+        <form onSubmit={handleSubmit(onSubmit)} className="relative z-[2]">
+          <div className="flex items-center justify-center">
             <div>
-              <p className="mt-lg-3 mt-1 mb-2">Full Name</p>
-              <div className="flex items-center justify-center">
-                <input
+              <AvatarUploader control={methods.control} name="avatar" />
+              <div>
+                <p className="mt-lg-3 mt-1 mb-2">Full Name</p>
+                <div className="flex items-center justify-center">
+                  <input
                   type="text"
                   className="border-raduce w-[450px] rounded-lg border-2 border-gray-500 bg-transparent px-2 py-1"
                   {...register("name", { required: "Please enter valid name" })}
@@ -79,18 +82,19 @@ function Form() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              <button
-                onClick={generateRandomNumber}
-                type="submit"
-                className="z-[2] mt-3 w-[450px] rounded-lg bg-[#E97464] px-6 py-2 font-bold text-black"
-              >
-                Generate My Ticket
-              </button>
+              <div className="flex items-center justify-center">
+                <button
+                  onClick={generateRandomNumber}
+                  type="submit"
+                  className="z-[2] mt-3 w-[450px] rounded-lg bg-[#E97464] px-6 py-2 font-bold text-black"
+                >
+                  Generate My Ticket
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </FormProvider>
     </>
   );
 }
