@@ -5,6 +5,7 @@ import Background from "./Components/Background";
 import "./App.css";
 import DesignTicket from "./Components/Ticket/designTicket";
 import { Route, Routes } from "react-router-dom";
+import {AvatarUpload} from "./Components/Form/AvatarUpload";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Form />} />
+          <Route path="/avatar" element={<AvatarUpload control={{} as any} name="avatar" />} />
           <Route path="/result" element={<DesignTicket />} />
         </Routes>
         <PatternBottomDesktop />

@@ -3,6 +3,13 @@ import logo from "../../assets/Images/logo-mark.svg";
 import GithubIcon from "../../assets/Images/icon-github.svg";
 import { useRandomNumber } from "./RandomNumberContext";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+type RegisterFormData = {
+  name: string;
+  userName: string;
+  avatar: File | null;
+};
 
 function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
   const formattedDate = ticketDate.toLocaleDateString("en-US", {
@@ -12,14 +19,27 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
   });
 
   const location = useLocation();
-  const data = location.state;
-  if (!data) return <p>Data not</p> ;
+
+  const data = location.state as RegisterFormData | undefined;
+
+  console.log("Received data:", data);
 
   const { randomNumber } = useRandomNumber();
 
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (data?.avatar) {
+      const url = URL.createObjectURL(data.avatar);
+      console.log("Preview URL:", url);
+      setAvatarUrl(url);
+      return () => URL.revokeObjectURL(url);
+    }
+  }, [data?.avatar]);
+
   return (
     <>
-      <div className="relative mt-5 mx-4 flex items-center justify-center">
+      <div className="relative mx-4 mt-5 flex items-center justify-center">
         <img src={PatternTicket} alt="" />
         <div className="absolute z-[3] flex">
           <div>
@@ -34,16 +54,23 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
             </div>
 
             <div className="[&>p]:my-0">
-              <p>{data.name}</p>
+                {avatarUrl && (
+                  <img
+                    src={avatarUrl as string}
+                    alt="Uploaded Avatar"
+                    className="h-40 w-40 rounded-full object-cover shadow-md"
+                  />
+                )}
+              <p>{data?.name}</p>
               <div className="flex">
                 <img src={GithubIcon} alt="" />
-                <p className="px-2 pt-3">{data.userName}</p>
+                <p className="px-2 pt-3">{data?.userName}</p>
               </div>
             </div>
           </div>
 
           <div style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-            <p className="text-2xl mt-[3rem] text-gray-400">#{randomNumber}</p>
+            <p className="mt-[3rem] text-2xl text-gray-400">#{randomNumber}</p>
           </div>
         </div>
       </div>
