@@ -53,19 +53,21 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
               </div>
             </div>
 
-            <div className="[&>p]:my-0">
-                {avatarUrl && (
-                  <img
-                    src={avatarUrl as string}
-                    alt="Uploaded Avatar"
-                    className="h-40 w-40 rounded-full object-cover shadow-md"
-                  />
-                )}
-              <p>{data?.name}</p>
-              <div className="flex">
-                <img src={GithubIcon} alt="" />
-                <p className="px-2 pt-3">{data?.userName}</p>
-              </div>
+            <div className="[&>p]:my-0 flex">
+              {avatarUrl && (
+                <img
+                  src={avatarUrl as string}
+                  alt="Uploaded Avatar"
+                  className="mr-3 h-20 w-20 rounded-lg object-cover shadow-md"
+                />
+              )}
+              <section>
+                <h4>{data?.name}</h4>
+                <div className="flex">
+                  <img src={GithubIcon} alt="GithubIcon" />
+                  <p className="px-2 pt-3">{data?.userName}</p>
+                </div>
+              </section>
             </div>
           </div>
 

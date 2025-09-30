@@ -40,7 +40,7 @@ function Form() {
             <div>
               <AvatarUpload control={control} name="avatar"/>
               <div>
-                <p className="mt-lg-3 mt-1 mb-2">Full Name</p>
+                <p className="mt-lg-2 mt-1 mb-2">Full Name</p>
                 <div className="flex items-center justify-center">
                   <input
                     type="text"
@@ -69,7 +69,7 @@ function Form() {
                       })}
                     />
                     {errors.email && (
-                      <p className="mt-2 mb-1 flex text-xs text-red-500">
+                      <p className="mt-2 mb-1 flex text-sm text-[#E97464]">
                         Please enter a valid email address
                       </p>
                     )}
