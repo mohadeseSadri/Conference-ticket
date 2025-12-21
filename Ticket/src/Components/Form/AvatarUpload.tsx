@@ -39,8 +39,8 @@ export function AvatarUpload({ control, name }: Props) {
         }}
         render={({ field: { onChange }, fieldState: { error } }) => (
           <div className="flex flex-col gap-2">
-            <label className="mt-2 font-medium text-stone-50">Upload avatar</label>
-            <div className="flex h-24 w-[450px] flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-400 p-4">
+            <label className="mt-4 sm:font-medium md:text-sm text-xs text-stone-50">Upload avatar</label>
+            <div className="h-24 w-[100%] flex items-center justify-center rounded-lg border-2 border-dashed border-gray-400 p-4">
               <input
                 type="file"
                 accept="image/png, image/jpeg"
@@ -92,7 +92,7 @@ export function AvatarUpload({ control, name }: Props) {
 
                     <label
                       htmlFor="avatarInput"
-                      className="cursor-pointer rounded-lg bg-[#403E5A] px-1 text-gray-200 hover:underline"
+                      className="cursor-pointer rounded-lg bg-[#403E5A] px-1 text-gray-200 hover:underline sm:text-sm text-xs"
                     >
                       Click to upload image
                     </label>
@@ -100,7 +100,7 @@ export function AvatarUpload({ control, name }: Props) {
                 )}
               </div>
             </div>
-            {error && <p className="text-sm text-[#E97464]">{error.message}</p>}
+            {error && <p className="md:text-sm text-xs text-[#E97464] mb-1">{error.message}</p>}
           </div>
         )}
       />
