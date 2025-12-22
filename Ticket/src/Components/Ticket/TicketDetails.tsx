@@ -40,15 +40,15 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
   return (
     <>
       <div className="relative mx-4 mt-5 flex items-center justify-center">
-        <img src={PatternTicket} alt="" />
+        <img src={PatternTicket} alt="Background ticket"/>
         <div className="absolute z-[3] flex">
-          <div>
-            <div className="mr-[11rem] mb-[1rem] sm:mr-[15rem] sm:mb-[2rem]">
+          <div className="ml-2 mt-2 sm:mr-[15rem]">
+            <div className="sm:mb-[2rem]">
               <div className="flex">
-                <img src={logo} alt="" className="mb-[2rem]" />
+                <img src={logo} alt="" className="mb-[1rem] w-[15%] sm:w-[23%]" />
                 <div>
-                  <h2 className="ml-[1rem] font-semibold">Coding Conf</h2>
-                  <p className="ml-[1rem]">{formattedDate}</p>
+                  <h2 className="ml-[1rem] font-semibold text-sm sm:text-2xl text-nowrap">Coding Conf</h2>
+                  <p className="ml-[1rem] text-xs sm:text-sm">{formattedDate}</p>
                 </div>
               </div>
             </div>
@@ -58,21 +58,21 @@ function TicketDetails({ ticketDate = new Date() }: { ticketDate?: Date }) {
                 <img
                   src={avatarUrl as string}
                   alt="Uploaded Avatar"
-                  className="mr-3 h-20 w-20 rounded-lg object-cover shadow-md"
+                  className="mr-3 sm:h-20 sm:w-20 h-[15%] w-[15%] mt-2 rounded-lg object-cover shadow-md"
                 />
               )}
-              <section>
-                <h4>{data?.name}</h4>
+              <section className="sm:mt-3">
+                <h4 className="text-sm sm:text-xl">{data?.name}</h4>
                 <div className="flex">
-                  <img src={GithubIcon} alt="GithubIcon" />
-                  <p className="px-2 pt-3">{data?.userName}</p>
+                  <img src={GithubIcon} alt="GithubIcon" className="mb-2"/>
+                  <p className="px-2 pt-1 text-xs sm:text-sm">{data?.userName}</p>
                 </div>
               </section>
             </div>
           </div>
 
           <div style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}>
-            <p className="mt-[3rem] text-2xl text-gray-400">#{randomNumber}</p>
+            <p className="sm:mt-[3rem] mt-[2.5rem] mr-[.75rem] sm:text-2xl text-gray-400">#{randomNumber}</p>
           </div>
         </div>
       </div>
